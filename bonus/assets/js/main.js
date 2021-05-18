@@ -13,6 +13,7 @@ const app = new Vue({
             './assets/img/slide-7.jpeg',
             './assets/img/slide-8.jpeg'
         ],
+        documentEl: document.addEventListener
 
     },
 
@@ -30,6 +31,8 @@ const app = new Vue({
             }
             return this.counter += 1;
         },
+
+        
     },
     mounted(){
         setInterval(()=>{
@@ -37,8 +40,22 @@ const app = new Vue({
                 return this.counter = 0;
             }
             return this.counter += 1;
-        }, 3000)
+        }, 5000)
+
+        document.addEventListener('keyup', ()=>{
+            const x = event.key
+            if (x === 'ArrowLeft') {
+                if (this.counter === 0){
+                    return this.counter = this.images.length - 1;
+                }
+                return this.counter -= 1
+            }else if (x === 'ArrowRight'){
+                if (this.counter === this.images.length - 1){
+                    return this.counter = 0;
+                }
+                return this.counter += 1;
+            }
+        })
     }
-
-
+    
 })
