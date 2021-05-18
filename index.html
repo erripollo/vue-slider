@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Slider</title>
+
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+     crossorigin="anonymous" />
+
+    <!-- style.css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <div id="app">
+        <div class="prev" @click="prev">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </div>
+        <div class="slide">
+            <img :src="images[counter]" alt="">
+            <div class="carousel_indicators">
+                <div class="indicator" :class="index===counter ? 'white' : 'white_trasparent'" v-for="(image, index) in images" @click="counter = index"></div>
+            </div>
+        </div>
+        
+        <div class="next" @click="next">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </div>
+
+    </div>
+
+    
+
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+    <!-- main.js -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
