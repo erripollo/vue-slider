@@ -35,25 +35,14 @@ const app = new Vue({
         
     },
     mounted(){
-        setInterval(()=>{
-            if (this.counter === this.images.length - 1){
-                return this.counter = 0;
-            }
-            return this.counter += 1;
-        }, 5000)
+        setInterval(this.next, 5000)
 
-        document.addEventListener('keyup', ()=>{
+        document.addEventListener('keyup', (event)=>{
             const x = event.key
             if (x === 'ArrowLeft') {
-                if (this.counter === 0){
-                    return this.counter = this.images.length - 1;
-                }
-                return this.counter -= 1
+                this.prev();
             }else if (x === 'ArrowRight'){
-                if (this.counter === this.images.length - 1){
-                    return this.counter = 0;
-                }
-                return this.counter += 1;
+                this.next();
             }
         })
     }
